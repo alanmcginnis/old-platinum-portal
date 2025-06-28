@@ -8,15 +8,15 @@ This directory is a sandbox for the initial Laravel + Breeze + Vue proof
    ```bash
    cd refactor/hello-breeze-vue
    ```
-2. **Install dependencies** (assuming Laravel is already created here):
+2. **Install dependencies** (assuming Laravel has been created here):
    ```bash
    composer install
    npm install
    npm run dev
    ```
 3. **Configure environment**:
-   Copy `.env.example` to `.env` and update DB credentials.
-   Generate key:
+   Copy `.env.example` to `.env` and update DB credentials for MySQL.
+   Generate application key:
    ```bash
    php artisan key:generate
    ```
@@ -89,13 +89,28 @@ In Sequel Ace, create a Standard connection:
 
 ### 3. (Optional) Configure the Laravel Spike
 
-Edit `refactor/hello-breeze-vue/.env` to match:
+Edit `refactor/hello-breeze-vue/.env` to configure multiple DB connections:
 
 ```ini
+# Primary database (accounting)
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=platinum
+DB_DATABASE=platinumind_accounting
 DB_USERNAME=root
 DB_PASSWORD=(your MySQL password)
+
+# Secondary database (timesheets)
+DB_TIMESHEET_HOST=127.0.0.1
+DB_TIMESHEET_PORT=3306
+DB_TIMESHEET_DATABASE=platinumind_timesheet
+DB_TIMESHEET_USERNAME=root
+DB_TIMESHEET_PASSWORD=(your MySQL password)
+
+# Tertiary database (website)
+DB_WEBSITE_HOST=127.0.0.1
+DB_WEBSITE_PORT=3306
+DB_WEBSITE_DATABASE=platinumind_website
+DB_WEBSITE_USERNAME=root
+DB_WEBSITE_PASSWORD=(your MySQL password)
 ```
