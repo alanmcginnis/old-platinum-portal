@@ -15,10 +15,11 @@ This directory is a sandbox for the initial Laravel + Breeze + Vue proof
    npm run dev
    ```
 3. **Configure environment**:
-   Copy `.env.example` to `.env` and update DB credentials for MySQL.
-   Generate application key:
+   Copy `.env.example` to `.env`. Update `APP_URL` to your local dev URL (e.g., `http://127.0.0.1:8000`), and update DB credentials for MySQL.
+   Then generate an application key and clear the config cache:
    ```bash
    php artisan key:generate
+   php artisan config:clear
    ```
 4. **Run migrations**:
    ```bash
