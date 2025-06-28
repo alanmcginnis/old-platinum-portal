@@ -1,0 +1,4 @@
+AuthType Basic
+AuthUserFile "/home/platinumind/www/www/timesheets/.htpasswd"
+AuthName Limited!
+require valid-user
