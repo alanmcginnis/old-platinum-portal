@@ -1,0 +1,101 @@
+# Hello‑World Milestone: Laravel Breeze + Vue Spike
+
+This directory is a sandbox for the initial Laravel + Breeze + Vue proof‑of‑concept. It is completely isolated from the legacy codebase. Once validated, final integration will be merged into the refactored project.
+
+## Setup
+
+1. **Change directory** into this spike folder:
+   ```bash
+   cd refactor/hello-breeze-vue
+   ```
+2. **Install dependencies** (assuming Laravel is already created here):
+   ```bash
+   composer install
+   npm install
+   npm run dev
+   ```
+3. **Configure environment**:
+   Copy `.env.example` to `.env` and update DB credentials.
+   Generate key:
+   ```bash
+   php artisan key:generate
+   ```
+4. **Run migrations**:
+   ```bash
+   php artisan migrate
+   ```
+5. **Serve locally**:
+   ```bash
+   php artisan serve
+   ```
+6. **Verify**: Visit http://127.0.0.1:8000 and confirm the Breeze login/register UI.
+
+## Next Steps
+
+- Study the generated `routes/web.php`, `resources/views`, and `resources/js/Pages` to see how Blade and Vue interoperate.
+- Scaffold a simple CRUD (e.g., Vendors) to replicate an existing module.
+
+## Local Database Setup
+
+### Prerequisites
+
+- MySQL client (`mysql`) must be installed and in your PATH. On macOS, install via Homebrew:
+  ```bash
+  brew install mysql
+  ```
+- If you use MAMP, Laragon, Docker, or another VM/container, ensure the `mysql` CLI is accessible in your environment.
+
+To import and inspect your database dump as defined in `localhost.sql`, you have two options:
+
+### A) Full multi‑DB import
+
+This will create and populate all original databases (`platinumind_accounting`, `platinumind_timesheet`, `platinumind_website`):
+
+```bash
+mysql -u root -p < /path/to/localhost.sql
+```
+
+### B) Import only the accounting schema into one DB
+
+If you prefer to load just the `platinumind_accounting` section into your local `platinum` database:
+
+#### 1) Using the `--one-database` option
+
+```bash
+mysql -u root -p --one-database=platinumind_accounting platinum \
+  < /path/to/localhost.sql
+```
+
+#### 2) Stripping CREATE/USE statements with `sed`
+
+```bash
+sed -e 's/CREATE DATABASE.*;//g' \
+    -e 's/USE `[^`]*`;//g' \
+    /path/to/localhost.sql \
+  | mysql -u root -p platinum
+```
+
+### 2. Connect with Sequel Ace
+
+In Sequel Ace, create a Standard connection:
+
+| Field    | Value                   |
+|----------|-------------------------|
+| Host     | 127.0.0.1               |
+| User     | root                    |
+| Password | (your MySQL password)   |
+| Port     | 3306                    |
+| Database | platinum                |
+
+### 3. (Optional) Configure the Laravel Spike
+
+Edit `refactor/hello-breeze-vue/.env` to match:
+
+```ini
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=platinum
+DB_USERNAME=root
+DB_PASSWORD=(your MySQL password)
+```
