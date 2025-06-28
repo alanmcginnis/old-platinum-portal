@@ -22,7 +22,9 @@ This directory is a sandbox for the initial Laravel + Breeze + Vue proof
    php artisan config:clear
    ```
 4. **Run migrations**:
+   Before migrating, if you imported the legacy dump, drop the old `vendors` table so migrations can recreate it properly:
    ```bash
+   mysql -u root -p platinumind_accounting -e "DROP TABLE IF EXISTS vendors;"
    php artisan migrate
    ```
 5. **Seed default users** (creates Test User + Dev Admin):
