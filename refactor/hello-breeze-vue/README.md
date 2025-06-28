@@ -25,7 +25,12 @@ This directory is a sandbox for the initial Laravel + Breeze + Vue proof
    ```bash
    php artisan migrate
    ```
-5. **Serve locally**:
+5. **Seed default users** (creates Test User + Dev Admin):
+   ```bash
+   php artisan db:seed
+   ```
+
+6. **Serve locally**:
    ```bash
    php artisan serve
    ```
@@ -35,6 +40,17 @@ This directory is a sandbox for the initial Laravel + Breeze + Vue proof
 
 - Study the generated `routes/web.php`, `resources/views`, and `resources/js/Pages` to see how Blade and Vue interoperate.
 - Scaffold a simple CRUD (e.g., Vendors) to replicate an existing module.
+- To change a seeded user’s password in dev, use Tinker or the password-reset flow:
+
+```bash
+php artisan tinker
+>>> use App\Models\User; use Illuminate\Support\Facades\Hash;
+>>> $user = User::where('email', 'test@example.com')->first();
+>>> $user->password = Hash::make('your-new-password');
+>>> $user->save();
+```
+
+Or visit `/forgot-password` and submit `test@example.com` to log the reset link (MAIL_MAILER=log).
 
 ## Local Database Setup
 
