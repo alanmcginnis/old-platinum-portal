@@ -81,7 +81,7 @@ function test_input($data) {
 
         $conn->close();
 
-      echo "<h3><a href=\"/neweeportal.html\">Employee portal</a></h3>";
+      echo "<h3><a href=\"/index.html\">Employee portal</a></h3>";
 // END OF POSUBMIT.PHP
 
       exit();

@@ -106,7 +106,7 @@ function test_input($data) {
 
   <body>
     <h1>Request Purchase Order</h1>
-    <p style="color:red">If this vendor will be performing any work onsite, <a href="/neweeportal.html">request a subcontract</a> in place of a purchase order.</p>
+    <p style="color:red">If this vendor will be performing any work onsite, <a href="/index.html">request a subcontract</a> in place of a purchase order.</p>
     <?php
     include('../../dbconnectpath.php');
 

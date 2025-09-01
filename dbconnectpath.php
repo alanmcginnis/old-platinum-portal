@@ -1,3 +1,3 @@
 <?php
-  require_once $_SERVER['DOCUMENT_ROOT'] . '/.secure/connect-db.php';
+  require_once $_SERVER['DOCUMENT_ROOT'] . '/config/database.php';
 ?>

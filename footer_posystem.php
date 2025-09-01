@@ -1,5 +1,5 @@
 <?php
-  echo "<a href=\"/neweeportal.html\">Return to employee portal</a><br><br>";
+  echo "<a href=\"/index.html\">Return to employee portal</a><br><br>";
   echo "<br>";
   echo "<a href=\"/operations/posystem/requestjobpo.php\">Request job purchase order</a><br>";
   echo "<a href=\"/operations/posystem/viewjobposbyjob.php\">View existing job POs by job #</a><br>";
