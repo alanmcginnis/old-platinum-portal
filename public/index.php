@@ -7,7 +7,7 @@ $request_uri = $_SERVER['REQUEST_URI'];
 $file_path = dirname(__DIR__) . $request_uri;
 
 // If it's a file that exists, serve it directly
-if (is_file($file_path) && !str_ends_with($file_path, '.php')) {
+if (is_file($file_path) && substr($file_path, -4) !== '.php') {
     $mime_types = [
         'css' => 'text/css',
         'js' => 'application/javascript',
@@ -29,7 +29,7 @@ if (is_file($file_path) && !str_ends_with($file_path, '.php')) {
 }
 
 // For PHP files, include them
-if (is_file($file_path) && str_ends_with($file_path, '.php')) {
+if (is_file($file_path) && substr($file_path, -4) === '.php') {
     include $file_path;
     exit;
 }
