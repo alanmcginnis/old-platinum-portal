@@ -1,6 +1,6 @@
 <html>
   <head>
-    <img src="/images/Logo.png" width="182" height="82" alt="Platinum Industrial, Inc." />
+    <a href="/"><img src="/images/Logo.png" width="182" height="82" alt="Platinum Industrial, Inc." /></a>
     <title>View Purchase Orders</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
   </head>

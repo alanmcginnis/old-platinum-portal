@@ -96,7 +96,7 @@ function test_input($data) {
 ?>
 <html>
   <head>
-    <img src="/images/Logo.png" width="182" height="82" alt="Platinum Industrial, Inc." />
+    <a href="/"><img src="/images/Logo.png" width="182" height="82" alt="Platinum Industrial, Inc." /></a>
     <title>Request Purchase Order</title>
     <link rel="stylesheet" type="text/css" href="default_style.css">
     <style>
